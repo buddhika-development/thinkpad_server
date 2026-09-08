@@ -1,7 +1,6 @@
 import create_app from "./app.js";
 import 'dotenv/config'
 import config from "./config/config.js";
-import { strucutred_llm } from './services/deepseek.js'
 
 const PORT = config.PORT
 
