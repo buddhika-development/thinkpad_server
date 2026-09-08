@@ -1,0 +1,6 @@
+# envoirement variables
+.env
+.env.*
+
+# node packages
+node_modules/
