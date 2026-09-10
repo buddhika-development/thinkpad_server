@@ -5,3 +5,11 @@
 
 # node packages
 node_modules/
+
+# build output
+dist/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
