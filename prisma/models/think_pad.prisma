@@ -1,0 +1,11 @@
+model ThinkPad {
+  id               String            @id @default(uuid())
+  thinkPadName     String            @map("think_pad_name")
+  description      String?           @db.Text
+  userId           String            @map("user_id")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  aiWriterContents AiWriterContent[]
+
+  @@map("think_pads")
+}

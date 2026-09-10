@@ -9,13 +9,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model ThinkPad {
+  id               String            @id @default(uuid())
+  thinkPadName     String            @map("think_pad_name")
+  description      String?           @db.Text
+  userId           String            @map("user_id")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  aiWriterContents AiWriterContent[]
+
+  @@map("think_pads")
+}
+
 model AiWriterContent {
-  id                   String   @id @default(uuid())
-  userId               String   @map("user_id")
-  userStatement        String   @map("user_statement") @db.Text
-  aiOptimizedStatement String   @map("ai_optimized_statement") @db.Text
-  createdAt            DateTime @default(now()) @map("created_at")
-  updatedAt            DateTime @updatedAt @map("updated_at")
+  id                   String    @id @default(uuid())
+  updatedBy            String    @map("updated_by")
+  thinkPadId           String?   @map("think_pad_id")
+  userStatement        String    @map("user_statement") @db.Text
+  aiOptimizedStatement String?   @map("ai_optimized_statement") @db.Text
+  status               String    @default("DRAFT") @map("status")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+  thinkPad             ThinkPad? @relation(fields: [thinkPadId], references: [id], onDelete: Cascade)
 
   @@map("ai_writer_content")
 }
