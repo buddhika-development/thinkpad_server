@@ -1,0 +1,11 @@
+// Base Prisma schema configuration
+// Learn more about multi-file schemas in Prisma: https://pris.ly/d/prisma-schema-folder
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
