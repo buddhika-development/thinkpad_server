@@ -1,5 +1,4 @@
 // Base Prisma schema configuration
-// Learn more about multi-file schemas in Prisma: https://pris.ly/d/prisma-schema-folder
 
 generator client {
   provider = "prisma-client-js"
@@ -8,4 +7,15 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model AiWriterContent {
+  id                   String   @id @default(uuid())
+  userId               String   @map("user_id")
+  userStatement        String   @map("user_statement") @db.Text
+  aiOptimizedStatement String   @map("ai_optimized_statement") @db.Text
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+
+  @@map("ai_writer_content")
 }
