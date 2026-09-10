@@ -22,11 +22,13 @@
     "@langchain/community": "^1.1.29",
     "@langchain/core": "^1.2.9",
     "@langchain/deepseek": "^1.1.11",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "langchain": "^1.5.10"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^26.4.1",
     "tsx": "^4.23.13",
