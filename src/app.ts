@@ -2,12 +2,13 @@ import express, { type Express } from 'express'
 import cors from 'cors'
 import ai_writer_router from './routes/ai_writer.router.js'
 import think_pad_router from './routes/think_pad.router.js'
+import config from './config/config.js'
 
 const create_app: () => Express = () => {
     const app = express()
 
     app.use(cors({
-        origin: ["http://localhost:3000", "http://localhost:5173", "*"],
+        origin: config.FRONTEND_URL,
         credentials: true
     }))
     app.use(express.json())
