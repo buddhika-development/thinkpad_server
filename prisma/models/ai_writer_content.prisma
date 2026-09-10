@@ -1,0 +1,13 @@
+model AiWriterContent {
+  id                   String    @id @default(uuid())
+  updatedBy            String    @map("updated_by")
+  thinkPadId           String?   @map("think_pad_id")
+  userStatement        String    @map("user_statement") @db.Text
+  aiOptimizedStatement String?   @map("ai_optimized_statement") @db.Text
+  status               String    @default("DRAFT") @map("status")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+  thinkPad             ThinkPad? @relation(fields: [thinkPadId], references: [id], onDelete: Cascade)
+
+  @@map("ai_writer_content")
+}

@@ -1,7 +1,8 @@
 import create_app from "./app.js";
 import 'dotenv/config'
+import config from "./config/config.js";
 
-const PORT = process.env.PORT || 8080
+const PORT = config.PORT
 
 const app = create_app()
 

@@ -1,6 +1,7 @@
 # envoirement variables
 .env
 .env.*
+!.env.example
 
 # node packages
 node_modules/
